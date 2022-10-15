@@ -1,4 +1,4 @@
-import "../scss/styles.scss"
-import * as bootstrap from 'bootstrap'
+import '../scss/styles.scss';
+import app from './app.js';
 
-console.log("Hello World!!!");
+app();
