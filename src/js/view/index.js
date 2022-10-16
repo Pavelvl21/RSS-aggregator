@@ -1,10 +1,16 @@
 import onChange from 'on-change';
-import renderError from './renderErrors.js';
+import renderErrors from './renderErrors.js';
 
-const render = (element) => (path, value) => {
-  if (path === 'validationState') {
-    renderError(element, value);
-  }
+const render = (state, elements, i18nInstance) => {
+  const watchedState = onChange(state, (path, value) => {
+    switch (path) {
+      case 'validationState':
+        renderErrors(elements, value, i18nInstance);
+        break;
+      default:
+        break;
+    }
+  });
+  return watchedState;
 };
-
-export default (state, element) => onChange(state, render(element));
+export default render;

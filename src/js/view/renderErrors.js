@@ -1,17 +1,16 @@
-const renderFeedback = () => {
+const renderFeedback = (i18nInstance) => {
   const p = document.createElement('p');
   p.classList.add('feedback', 'm-0', 'position-absolute', 'small', 'text-success', 'text-danger');
-  p.textContent = 'Ссылка должна быть валидным URL';
+  p.textContent = i18nInstance.t('errors.validationError');
   return p;
 };
-export default (elements, value) => {
+export default (elements, value, i18nInstance) => {
   const { input, form } = elements;
-  const feedback = renderFeedback();
+  const feedback = renderFeedback(i18nInstance);
   const targetElement = form.nextElementSibling;
   if (value === 'invalid') {
     input.classList.add('is-invalid');
     targetElement.after(feedback);
-    console.log(feedback);
   }
   if (targetElement.nextElementSibling && value !== 'invalid') {
     input.classList.remove('is-invalid');
