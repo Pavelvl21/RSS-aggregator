@@ -10,6 +10,16 @@
 $input-border-radius: 0.25rem;
 $btn-border-radius-lg: 0.3rem;
 
+// $spinner-width:           2rem;
+// $spinner-height:          $spinner-width;
+// $spinner-vertical-align:  -.125em;
+// $spinner-border-width:    .25em;
+// $spinner-animation-speed: .75s;
+
+// $spinner-width-sm:        1rem;
+// $spinner-height-sm:       $spinner-width-sm;
+// $spinner-border-width-sm: .2em;
+
 // 3. Include remainder of required Bootstrap stylesheets
 @import "~bootstrap/scss/variables";
 
@@ -32,6 +42,7 @@ $btn-border-radius-lg: 0.3rem;
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/buttons";
 @import "~bootstrap/scss/forms";
+// @import "~bootstrap/scss/spinners";
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "~bootstrap/scss/utilities/api";

@@ -1,14 +1,18 @@
 export default {
   translation: {
-    // display: 'RSS агрегатор',
-    // lead: 'Начните читать RSS сегодня! Это легко, это красиво.',
-    // urlInput: 'Ссылка RSS',
-    // buttons: {
-    //   add: 'Добавить',
-    // },
-    // example: 'Пример: https://cdn.cs50.net/podcast/podcast.rss',
-    errors: {
+    alerts: {
       validationError: 'Ссылка должна быть валидным URL',
+      existError: 'RSS уже существует',
+      loadingError: 'Ресурс не содержит валидный RSS',
+      sending: 'Ожидание загрузки...',
+      loaded: 'RSS успешно загружен',
+      rssError: 'Ресурс не содержит валидный RSS',
+      AxiosError: 'Ошибка сети',
     },
+    channels: {
+      feeds: 'Фиды',
+      posts: 'Посты',
+    },
+    button: 'Просмотр',
   },
 };
