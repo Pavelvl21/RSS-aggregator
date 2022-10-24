@@ -13,7 +13,6 @@ export default (elements, i18nInstance) => (path, value) => {
     case 'processState':
       renderErrors(elements, value, i18nInstance);
       break;
-
     default:
       break;
   }
