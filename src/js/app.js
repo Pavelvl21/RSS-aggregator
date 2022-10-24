@@ -1,8 +1,8 @@
 import i18n from 'i18next';
 import ru from './locales/ru.js';
 
-import render from './view/index.js';
-import handleValidationState from './controller/index.js';
+import render from './view/render.js';
+import handleValidationState from './controller/handleValidationState.js';
 
 export default () => {
   const i18nInstance = i18n.createInstance();
