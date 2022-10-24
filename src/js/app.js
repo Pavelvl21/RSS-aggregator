@@ -1,4 +1,5 @@
 import i18n from 'i18next';
+import onChange from 'on-change';
 import ru from './locales/ru.js';
 
 import render from './view/render.js';
@@ -14,15 +15,6 @@ export default () => {
     },
   });
 
-  const state = {
-    processState: 's',
-    channels: {
-      feeds: [],
-      posts: [],
-    },
-    loadedFeeds: new Set(),
-  };
-
   const elements = {
     input: document.querySelector('#url-input'),
     form: document.querySelector('.rss-form'),
@@ -35,7 +27,14 @@ export default () => {
     },
   };
 
-  const watchedState = render(state, elements, i18nInstance);
+  const state = onChange({
+    processState: 's',
+    channels: {
+      feeds: [],
+      posts: [],
+    },
+    loadedFeeds: new Set(),
+  }, render(elements, i18nInstance));
 
-  elements.form.addEventListener('submit', handleValidationState(watchedState));
+  elements.form.addEventListener('submit', handleValidationState(state));
 };
