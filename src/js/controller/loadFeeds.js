@@ -22,12 +22,11 @@ export default (url, watchedState) => axios({
 
     watchedState.channels.feeds.push(feeds);
     watchedState.channels.posts.unshift(...postsList);
-    watchedState.processState = 'loaded';
     watchedState.loadedFeeds.add(url);
-
+    watchedState.processState = 'loaded';
     updatePosts(watchedState);
   })
-
   .catch((error) => {
-    watchedState.processState = error.name;
+    watchedState.processState = 'filling';
+    watchedState.processError = error.name;
   });

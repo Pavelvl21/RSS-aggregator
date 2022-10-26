@@ -12,10 +12,11 @@ export default (watchedState) => (e) => {
 
   validateUrl(rssLink, loadedFeeds)
     .then(({ url }) => {
-      watchedState.processState = 'sending';
+      watchedState.processState = 'loading';
       loadFeeds(url, watchedState);
     })
     .catch((error) => {
-      watchedState.processState = error.message;
+      watchedState.processState = 'filling';
+      watchedState.processError = error.message;
     });
 };

@@ -1,13 +1,15 @@
 export default {
   translation: {
-    alerts: {
+    errors: {
       validationError: 'Ссылка должна быть валидным URL',
       existError: 'RSS уже существует',
       loadingError: 'Ресурс не содержит валидный RSS',
-      sending: 'Ожидание загрузки...',
-      loaded: 'RSS успешно загружен',
       rssError: 'Ресурс не содержит валидный RSS',
       AxiosError: 'Ошибка сети',
+    },
+    processes: {
+      loading: 'Ожидание загрузки...',
+      loaded: 'RSS успешно загружен',
     },
     channels: {
       feeds: 'Фиды',

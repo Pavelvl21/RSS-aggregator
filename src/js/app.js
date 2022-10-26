@@ -29,6 +29,7 @@ export default () => {
 
   const state = onChange({
     processState: 'filling',
+    processError: null,
     channels: {
       feeds: [],
       posts: [],
