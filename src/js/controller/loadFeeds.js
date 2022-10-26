@@ -1,21 +1,21 @@
 /* eslint-disable no-param-reassign */
-import _ from 'lodash';
+import uniqueId from 'lodash/uniqueId.js';
 import axios from 'axios';
 import parse from './utils/parse.js';
+import updatePosts from './utils/updatePosts.js';
 
 export default (url, watchedState) => axios({
   method: 'get',
-  url: `https://allorigins.hexlet.app/get?disableCache=true&url=${encodeURIComponent(
-    url,
-  )}`,
+  url: `https://allorigins.hexlet.app/get?disableCache=true&url=${encodeURIComponent(url)}`,
   timeout: 8000,
 })
   .then((response) => {
     const { feed, posts } = parse(response);
-    const feeds = { id: _.uniqueId(), ...feed };
+    const feeds = { id: uniqueId(), ...feed };
     const postsList = posts.map((post) => ({
-      postIid: _.uniqueId(),
+      postId: uniqueId(),
       feedId: feeds.id,
+      feedUrl: url,
       ...post,
     }));
     postsList.reverse();
@@ -24,6 +24,8 @@ export default (url, watchedState) => axios({
     watchedState.channels.posts.unshift(...postsList);
     watchedState.processState = 'loaded';
     watchedState.loadedFeeds.add(url);
+
+    updatePosts(watchedState);
   })
 
   .catch((error) => {
