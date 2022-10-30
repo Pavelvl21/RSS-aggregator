@@ -3,20 +3,20 @@
 import loadFeeds from './loadFeeds.js';
 import validateUrl from './utils/validate.js';
 
-export default (watchedState) => (e) => {
+export default (state) => (e) => {
   e.preventDefault();
 
   const formData = new FormData(e.target);
   const rssLink = Object.fromEntries(formData).url;
-  const loadedFeeds = Array.from(watchedState.loadedFeeds);
+  const loadedFeeds = Array.from(state.loadedFeeds);
 
   validateUrl(rssLink, loadedFeeds)
     .then(({ url }) => {
-      watchedState.processState = 'loading';
-      loadFeeds(url, watchedState);
+      state.processes.processState = 'loading';
+      loadFeeds(url, state);
     })
     .catch((error) => {
-      watchedState.processState = 'filling';
-      watchedState.processError = error.message;
+      state.processes.processState = 'filling';
+      state.processes.processError = error.message;
     });
 };

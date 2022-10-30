@@ -21,6 +21,7 @@ const getNewPosts = (watchedState) => (url) => {
           postId: uniqueId(),
           feedId,
           feedUrl: url,
+          status: '',
           ...post,
         }));
       watchedState.channels.posts.unshift(...newPosts);
@@ -30,6 +31,6 @@ const getNewPosts = (watchedState) => (url) => {
 };
 
 export default (watchedState) => {
-  const loadedFeeds = Array.from(watchedState.loadedFeeds);
+  const loadedFeeds = [...watchedState.loadedFeeds];
   loadedFeeds.forEach(getNewPosts(watchedState));
 };

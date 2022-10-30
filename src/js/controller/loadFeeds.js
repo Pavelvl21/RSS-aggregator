@@ -16,6 +16,7 @@ export default (url, watchedState) => axios({
       postId: uniqueId(),
       feedId: feeds.id,
       feedUrl: url,
+      status: '',
       ...post,
     }));
     postsList.reverse();
@@ -23,10 +24,10 @@ export default (url, watchedState) => axios({
     watchedState.channels.feeds.push(feeds);
     watchedState.channels.posts.unshift(...postsList);
     watchedState.loadedFeeds.add(url);
-    watchedState.processState = 'loaded';
+    watchedState.processes.processState = 'loaded';
     updatePosts(watchedState);
   })
   .catch((error) => {
-    watchedState.processState = 'filling';
-    watchedState.processError = error.name;
+    watchedState.processes.processState = 'filling';
+    watchedState.processes.processError = error.name;
   });
