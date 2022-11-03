@@ -18,7 +18,7 @@ export default (url, watchedState) => axios({
       feedUrl: url,
       ...post,
     }));
-    // postsList.reverse();
+    postsList.reverse();
 
     watchedState.channels.feeds.push(feeds);
     watchedState.channels.posts.unshift(...postsList);
