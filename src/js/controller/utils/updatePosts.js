@@ -21,7 +21,6 @@ const getNewPosts = (watchedState) => (url) => {
           postId: uniqueId(),
           feedId,
           feedUrl: url,
-          status: '',
           ...post,
         }));
       watchedState.channels.posts.unshift(...newPosts);

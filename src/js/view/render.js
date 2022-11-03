@@ -5,13 +5,13 @@ import renderProcesses from './renderProcesses.js';
 import renderModal from './renderModal.js';
 import renderVisitedLinks from './renderVisitedLinks.js';
 
-export default (elements, i18nInstance) => (path, value) => {
+export default (state, elements, i18nInstance) => (path, value) => {
   switch (path) {
     case 'channels.feeds':
       renderFeeds(elements, value, i18nInstance);
       break;
     case 'channels.posts':
-      renderPosts(elements, value, i18nInstance);
+      renderPosts(state, elements, value, i18nInstance);
       break;
     case 'processes.processError':
       renderErrors(elements, value, i18nInstance);
@@ -19,7 +19,7 @@ export default (elements, i18nInstance) => (path, value) => {
     case 'processes.processState':
       renderProcesses(elements, value, i18nInstance);
       break;
-    case 'modal':
+    case 'ui.modal':
       renderModal(elements, value);
       renderVisitedLinks(value);
       break;

@@ -34,22 +34,24 @@ export default () => {
     },
   };
 
-  const state = onChange(
-    {
-      processes: {
-        processState: 'filling',
-        processError: null,
-      },
-      channels: {
-        feeds: [],
-        posts: [],
-      },
-      modal: {},
-      loadedFeeds: new Set(),
+  const state = {
+    processes: {
+      processState: 'filling',
+      processError: null,
     },
-    render(elements, i18nInstance),
-  );
+    channels: {
+      feeds: [],
+      posts: [],
+    },
+    ui: {
+      modal: {},
+      visitedLinksId: new Set(),
+    },
+    loadedFeeds: new Set(),
+  };
 
-  elements.form.addEventListener('submit', handleProcesses(state));
-  elements.channels.posts.addEventListener('click', handlePostsEvents(state));
+  const watchedState = onChange(state, render(state, elements, i18nInstance));
+
+  elements.form.addEventListener('submit', handleProcesses(watchedState));
+  elements.channels.posts.addEventListener('click', handlePostsEvents(watchedState));
 };

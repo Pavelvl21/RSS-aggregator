@@ -1,11 +1,11 @@
 /* eslint-disable no-param-reassign */
 
-export default (state) => (e) => {
+export default (watchedState) => (e) => {
   if (Object.hasOwn(e.target.dataset, 'id')) {
     const { id } = e.target.dataset;
-    const loadedPosts = state.channels.posts;
+    const loadedPosts = watchedState.channels.posts;
     const currentPost = loadedPosts.find(({ postId }) => postId === id);
-    currentPost.status = 'visited';
-    state.modal = { ...currentPost };
+    watchedState.ui.modal = { ...currentPost };
+    watchedState.ui.visitedLinksId.add(id);
   }
 };

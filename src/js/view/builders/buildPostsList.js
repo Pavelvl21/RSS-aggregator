@@ -1,10 +1,5 @@
-export default (post, i18nInstance) => {
-  const {
-    title,
-    url,
-    postId,
-    status,
-  } = post;
+export default (post, linkStatus, i18nInstance) => {
+  const { title, url, postId } = post;
   const li = document.createElement('li');
   li.classList.add(
     'list-group-item',
@@ -16,8 +11,8 @@ export default (post, i18nInstance) => {
   );
 
   const a = document.createElement('a');
-  const linkStatus = status === 'visited' ? ['fw-normal', 'link-secondary'] : ['fw-bold'];
-  a.classList.add(...linkStatus);
+  const className = linkStatus === 'visited' ? ['fw-normal', 'link-secondary'] : ['fw-bold'];
+  a.classList.add(...className);
   a.setAttribute('href', url);
   a.setAttribute('target', '_blank');
   a.setAttribute('rel', 'noopener noreferrer');
