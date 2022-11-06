@@ -9,6 +9,6 @@ const render = (feeds, i18nInstance) => {
 };
 
 export default (elements, feeds, i18nInstance) => {
-  const feedCard = render(feeds, i18nInstance);
-  elements.channels.feeds.replaceChildren(feedCard);
+  const view = render(feeds, i18nInstance);
+  elements.channels.feeds.replaceChildren(view);
 };

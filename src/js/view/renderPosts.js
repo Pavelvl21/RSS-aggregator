@@ -17,6 +17,6 @@ const render = (state, posts, i18nInstance) => {
 };
 
 export default (state, elements, posts, i18nInstance) => {
-  const postsCard = render(state, posts, i18nInstance);
-  elements.channels.posts.replaceChildren(postsCard);
+  const view = render(state, posts, i18nInstance);
+  elements.channels.posts.replaceChildren(view);
 };
