@@ -12,9 +12,8 @@ const render = (state, posts, i18nInstance) => {
     return buildPostsList(post, linkStatus, i18nInstance);
   });
   const postsName = i18nInstance.t('channels.posts');
-  const postsCard = buildCard(postsName, ...postsList);
 
-  return postsCard;
+  return buildCard(postsName, ...postsList);
 };
 
 export default (state, elements, posts, i18nInstance) => {
