@@ -10,7 +10,7 @@ export default (elements, processState, i18nInstance) => {
     case 'loaded':
       input.classList.remove('is-invalid');
       input.removeAttribute('readonly', 'true');
-      button.setAttribute('type', 'input');
+      button.setAttribute('type', 'submit');
       button.classList.remove('disabled');
       feedback.classList.remove('text-info', 'text-danger');
       feedback.classList.add('text-success');
@@ -29,7 +29,7 @@ export default (elements, processState, i18nInstance) => {
 
     case 'filling':
       button.classList.remove('disabled');
-      button.setAttribute('type', 'input');
+      button.setAttribute('type', 'submit');
       break;
 
     default:
