@@ -19,7 +19,7 @@ export default () => {
   const elements = {
     input: document.querySelector('#url-input'),
     form: document.querySelector('.rss-form'),
-    button: document.querySelector('[type="submit"]'),
+    button: document.querySelector('button[type="submit"]'),
     feedback: document.querySelector('.feedback'),
     span: document.querySelector('.visually-hidden'),
     channels: {
